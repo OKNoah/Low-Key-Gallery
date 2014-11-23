@@ -37,11 +37,13 @@ class Lowkey {
 	public $attachmentUrlsFull;
 	public $attachmentUrlsThumb;
 	public $headerUrl;
+	public $count;
 
 	function __construct($attachementIds) {
 		$this->attachmentUrlsFull =  $this->getAllUrls($attachementIds, 'full');
 		$this->attachmentUrlsThumb =  $this->getAllUrls($attachementIds, 'thumbnail');
 		$this->headerUrl = $this->attachmentUrlsFull[0][0];
+		$this->count = count($attachementIds);
 	}
 
 	function getAllUrls($attachementIds, $size) {
@@ -64,11 +66,13 @@ class Lowkey {
 	}
 
 	function showThumbnails() {
-		echo "<div class='lk-row'>";
-		foreach ($this->attachmentUrlsThumb as $thumbUrl) {
-			$this->showThumbnail($thumbUrl[0]);
+		if ($this->count > 1) {
+			echo "<div class='lk-row'>";
+			foreach ($this->attachmentUrlsThumb as $thumbUrl) {
+				$this->showThumbnail($thumbUrl[0]);
+			}
+			echo "</div>";
 		}
-		echo "</div>";
 	}
 
 	function display() {
