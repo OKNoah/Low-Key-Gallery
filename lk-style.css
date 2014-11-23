@@ -1,0 +1,22 @@
+.lk-canvas {
+  height: 400pt;
+  display: block;
+  text-align: center;
+  white-space: nowrap;
+  margin: 0 auto; }
+  .lk-canvas .lk-helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle; }
+  .lk-canvas #lk-bigscreen {
+    max-width: 100%;
+    max-height: 400pt;
+    vertical-align: middle;
+    text-align: center;
+    display: inline-block; }
+
+.lk-row {
+  display: block;
+  text-align: center; }
+  .lk-row .lk-thumbnail {
+    margin: 5pt; }
