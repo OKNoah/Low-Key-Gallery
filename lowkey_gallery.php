@@ -21,9 +21,9 @@ function lk_add_css() {
 function lk_gallery_func( $atts ) {
 	$shortcodeAttribute = shortcode_atts( array('ids' => 0), $atts, 'gallery');
 	$shortcodeAttributeString = implode($shortcodeAttribute);
-	$attachementIds = split(",", $shortcodeAttributeString);
+	$attachmentIds = split(",", $shortcodeAttributeString);
 
-	$lk_gallery = new Lowkey($attachementIds);
+	$lk_gallery = new Lowkey($attachmentIds);
 
 	$lk_css = plugins_url() . "/lowkey_gallery/style.css";
 	echo "<style>" . $lk_css .  "</style>";
@@ -39,16 +39,16 @@ class Lowkey {
 	public $headerUrl;
 	public $count;
 
-	function __construct($attachementIds) {
-		$this->attachmentUrlsFull =  $this->getAllUrls($attachementIds, 'full');
-		$this->attachmentUrlsThumb =  $this->getAllUrls($attachementIds, 'thumbnail');
+	function __construct($attachmentIds) {
+		$this->attachmentUrlsFull =  $this->getAllUrls($attachmentIds, 'full');
+		$this->attachmentUrlsThumb =  $this->getAllUrls($attachmentIds, 'thumbnail');
 		$this->headerUrl = $this->attachmentUrlsFull[0][0];
-		$this->count = count($attachementIds);
+		$this->count = count($attachmentIds);
 	}
 
-	function getAllUrls($attachementIds, $size) {
+	function getAllUrls($attachmentIds, $size) {
 		$allUrls = Array();
-		foreach($attachementIds as $id) {
+		foreach($attachmentIds as $id) {
 			$url = wp_get_attachment_image_src($id, $size);
 			array_push($allUrls, $url);
 		} 
