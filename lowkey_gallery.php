@@ -11,8 +11,8 @@ add_shortcode('gallery', 'lk_gallery_func');
 add_action('wp_enqueue_scripts', 'lk_add_css');
 
 function lk_add_css() {
-	$lk_css = plugins_url() . "/lowkey_gallery/lk-style.css";
-	$lk_js = plugins_url() . "/lowkey_gallery/lowkey.js";
+	$lk_css = plugins_url('lk-style.css', __FILE__);
+	$lk_js = plugins_url('lowkey.js', __FILE__);
 
 	wp_enqueue_style('lk-css', $lk_css);
 	wp_enqueue_script('lk_js', $lk_js, array(), '0.1.0', true);
